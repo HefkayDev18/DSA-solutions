@@ -1,1 +1,6 @@
 myfile.py
+/Longest common substring/LongestSubstring/bin/
+/Longest common substring/LongestSubstring/obj/
+/Longest common substring/LongestSubstring/.vs/
+*.sln
+

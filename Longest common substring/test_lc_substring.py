@@ -5,7 +5,7 @@ import unittest;
 def longest_possible_substring_dp(text1, text2): #Accepting 2 strings/books to be checked for plagiarism
     n, m = len(text1), len(text2) #we are obtaining the length of both strings, so it could be iterated through
     table = [[0] * (m + 1) for _ in range(n + 1)] #Created a 2D table with 0 as prefilled values for a (n+1) * (m+1) table
-
+    
     max_substring_length = 0 #initialized values to track both the longest substring length and end position
     end_position = 0
 
