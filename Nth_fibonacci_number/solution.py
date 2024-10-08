@@ -1,6 +1,6 @@
 #Nth fibonacci number 
 # Fn = F(n - 1) + F(n - 2)
-
+import unittest;
 
 n = int(input("Enter a number to get its fibonacci equivalent: "))
 #Brute force/naive approach 
@@ -12,28 +12,26 @@ n = int(input("Enter a number to get its fibonacci equivalent: "))
 #         result = fib(n - 1) + fib(n - 2) #recursion
 #     return result
 
-# print(fib(n))
 # Time complexity = o pow(n), non optimal for higher indexes
 
 
 #MORE OPTIMAL SOLUTIONS, USING MEMOIZATION AND BOTTOM-UP APPROACH 
 
 #Using memoization and recursion i.e Dynamic programming 
-memo = {}
+# memo = {}
 
-def fib(n):
-    if n in memo:
-        return memo[n]
+# def fib(n):
+#     if n in memo:
+#         return memo[n]
      
-    if n <= 2:
-        result = 1
-    else: 
-        result = fib(n - 1) + fib(n - 2)
+#     if n <= 2:
+#         result = 1
+#     else: 
+#         result = fib(n - 1) + fib(n - 2)
     
-    memo[n] = result
-    return result 
+#     memo[n] = result
+#     return result 
 
-print(fib(n))
 # Time complexity = O[n] - Linear 
 
 
@@ -42,10 +40,25 @@ def fib(n):
     memo = {}
 
     for i in range(1, n + 1):
-        if n <= 2:
+        if i <= 2:
             result = 1
         else: 
             result = memo[i - 1] + memo[i - 2]
-        
-    memo[i] = result
+                   
+        memo[i] = result
     return memo[n]
+
+print(fib(n))
+
+
+class TestFibonacci(unittest.TestCase):
+
+    def test_small_no(self):
+        self.assertEqual(fib(5), 5)
+    
+    def test_larger_no(self):
+        self.assertEqual(fib(200), 280571172992510140037611932413038677189525)
+
+
+if __name__ == '__main__':
+    unittest.main()
