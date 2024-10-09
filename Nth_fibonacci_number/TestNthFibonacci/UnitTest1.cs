@@ -22,7 +22,7 @@ namespace TestNthFibonacci
         [Test]
         public void TestLargerNo()
         {
-            Assert.That(FibonacciEquivalent.Fib(6), Is.EqualTo(8));
+            Assert.That(FibonacciEquivalent.Fib(50), Is.EqualTo(12586269025));
         }
     }
 }

@@ -8,12 +8,12 @@ namespace TestNthFibonacci
 {
     public class FibonacciEquivalent
     {
-        public static int Fib(int n)
+        public static long Fib(int n)
         {
             if(n == 0) return 0;
             if(n <= 2) return 1;
 
-            int[] memo = new int[n + 1];
+            long[] memo = new long[n + 1];
             memo[0] = 0;
             memo[1] = 1;
 
