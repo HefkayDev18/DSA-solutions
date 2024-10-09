@@ -3,4 +3,6 @@ myfile.py
 /Longest common substring/TestLongestSubstring/obj/
 /Longest common substring/TestLongestSubstring/.vs/
 *.sln
-
+/Nth_fibonacci_number/TestNthFibonacci/bin/
+/Nth_fibonacci_number/TestNthFibonacci/obj/
+/Nth_fibonacci_number/TestNthFibonacci/.vs/
