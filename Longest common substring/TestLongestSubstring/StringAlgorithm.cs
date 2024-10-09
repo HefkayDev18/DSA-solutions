@@ -1,6 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LongestSubstring
+namespace TestLongestSubstring
 {
     public class StringAlgorithm()
     {
@@ -14,7 +18,7 @@ namespace LongestSubstring
             int max_length = 0;
             int end_position = 0;
 
-            for(int i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 for (int j = 1; j <= m; j++)
                 {
@@ -34,23 +38,23 @@ namespace LongestSubstring
             return text1.Substring(end_position - max_length, max_length);
         }
 
-        static void Main(string[] args)
-        {
-            ArgumentNullException.ThrowIfNull(args);
+        //static void Main(string[] args)
+        //{
+        //    ArgumentNullException.ThrowIfNull(args);
 
-            string text1 = "abcdef";
-            string text2 = "defabc";
+        //    string text1 = "abcdef";
+        //    string text2 = "defabc";
 
-            string longestCommonSubstring = CommonSubstring(text1, text2);
+        //    string longestCommonSubstring = CommonSubstring(text1, text2);
 
-            Console.WriteLine($"The longest common substring between '{text1}' and '{text2}' is: '{longestCommonSubstring}'");
+        //    Console.WriteLine($"The longest common substring between '{text1}' and '{text2}' is: '{longestCommonSubstring}'");
 
-            text1 = "hello";
-            text2 = "world";
+        //    text1 = "hello";
+        //    text2 = "world";
 
-            longestCommonSubstring = CommonSubstring(text1, text2);
+        //    longestCommonSubstring = CommonSubstring(text1, text2);
 
-            Console.WriteLine($"The longest common substring between '{text1}' and '{text2}' is: '{longestCommonSubstring}'");
-        }
+        //    Console.WriteLine($"The longest common substring between '{text1}' and '{text2}' is: '{longestCommonSubstring}'");
+        //}
     }
 }

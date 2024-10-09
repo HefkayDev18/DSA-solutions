@@ -23,6 +23,8 @@ book1_content = "This is the content of book one."
 book2_content = "This book has similar content."
 print(longest_possible_substring_dp(book1_content, book2_content))
 
+#The time complexity and space complexity is O[n*m]
+
 class TestLongestCommonSubstring(unittest.TestCase):
 
     def test_no_common_substring(self):

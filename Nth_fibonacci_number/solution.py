@@ -12,7 +12,7 @@ n = int(input("Enter a number to get its fibonacci equivalent: "))
 #         result = fib(n - 1) + fib(n - 2) #recursion
 #     return result
 
-# Time complexity = o pow(n), non optimal for higher indexes
+# Time complexity = O[2pow(n)], space complexity is O[n], because height of recursive tree is n - non optimal for higher indexes
 
 
 #MORE OPTIMAL SOLUTIONS, USING MEMOIZATION AND BOTTOM-UP APPROACH 

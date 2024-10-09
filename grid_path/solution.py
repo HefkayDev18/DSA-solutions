@@ -1,4 +1,4 @@
-#Given an N * M grid, in how many ways can a rabbit move from the top left corner to bottom right corner if he can only 
+#Given an N * M grid, in how many ways can a rabbit move from the top left corner to bottom right corner if he can only move 
 #right or down
 import unittest
 

@@ -12,7 +12,7 @@ def Longest_common_subsequence(text1, text2):
                 dp[i][j] = dp[i - 1][j - 1] + 1           
             else: 
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-
+    #This is where i start backtracking
     i, j = n, m
     sub_seq = ""
     while i > 0 and j > 0:
@@ -30,7 +30,7 @@ def Longest_common_subsequence(text1, text2):
 book1 = "abcde"
 book2 = "ace"
 print(Longest_common_subsequence(book1, book2))
-
+#The time complexity and space complexity is O[n*m]
 
 class TestLongestCommonSubsequence(unittest.TestCase):
 
