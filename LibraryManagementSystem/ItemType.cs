@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    public class Book(string title) : LibraryItem(title, 14) { }
+    public class Book(string title) : LibraryItem(title, 14, 0.50) { }
 
-    public class Magazine(string title) : LibraryItem(title, 7) { }
+    public class Magazine(string title) : LibraryItem(title, 7, 0.25) { }
 
-    public class DVD(string title) : LibraryItem(title, 3){ }
+    public class DVD(string title) : LibraryItem(title, 3, 1.00){ }
 
 }

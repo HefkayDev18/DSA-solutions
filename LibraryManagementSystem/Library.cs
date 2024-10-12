@@ -72,18 +72,19 @@ namespace LibraryManagementSystem
             return item;
         }
 
-        public void BorrowItem(string title)
+        public void BorrowItem(string title, string patronName)
         {
             LibraryItem item = FindItem(title);
 
             if(item != null && !item.IsBorrowed)
             {
-                item.BorrowItem();
+                item.BorrowItem(patronName);
                 Console.WriteLine($"You have borrowed: {title}, Due for return on {item.GetDueDate().Value.ToShortDateString()}");
             }
             else
             {
-                Console.WriteLine($"'{title}' is either not available or is already borrowed.");
+                item.BorrowItem(patronName);
+                //Console.WriteLine($"'{title}' is either not available or is already borrowed.");
             }
         }
 

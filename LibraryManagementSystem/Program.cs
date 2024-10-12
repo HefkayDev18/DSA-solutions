@@ -16,8 +16,8 @@
             hefkayLibrary.AddMagazine("Architectural patterns - UnitOfWork & repository");
             hefkayLibrary.AddDVD("Data structures in c#, python and java");
 
-            hefkayLibrary.BorrowItem("The Gang of 4");
-            hefkayLibrary.BorrowItem("Data structures in c#, python and java");
+            hefkayLibrary.BorrowItem("The Gang of 4", "Farouk");
+            hefkayLibrary.BorrowItem("Data structures in c#, python and java", "Samson");
 
             hefkayLibrary.ListBorrowedItem();
 
