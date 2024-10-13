@@ -11,8 +11,16 @@ namespace LibraryManagementSystem
         public string Title { get; private set; } = title;
         //Might have used a key or ID instead, maybe string(first 2 letters of item type + random number or guid)
         public int BorrowingLimitDays { get; private set; } = borrowingLimitDays;
-        public bool IsBorrowed { get; private set; } = false;
+
+        //public bool IsBorrowed { get; private set; } = false;
+        public bool IsBorrowed => BorrowedDate != null;
         public DateTime? BorrowedDate { get; private set; }
+
+        //FOR TESTS
+        public void SetBorrowedDate(DateTime date)
+        {
+            BorrowedDate = date;
+        }
         public double PenaltyFeePerDay { get; private set; } = penaltyFeePerDay;
         public Queue<string> ReservationQueue { get; private set; } = new();
 
@@ -31,8 +39,21 @@ namespace LibraryManagementSystem
 
         public bool IsOverdue()
         {
-            if (BorrowedDate == null) return false;
-            return DateTime.Now > GetDueDate();
+            //if (BorrowedDate == null) return false;
+            if (BorrowedDate == null)
+            {
+                Console.WriteLine("BorrowedDate is null.");
+                return false;
+            }
+
+            DateTime dueDate = BorrowedDate.Value.AddDays(BorrowingLimitDays);
+            //DateTime TodayDate = new DateTime(2024, 10, 12);
+
+            Console.WriteLine($"BorrowedDate: {BorrowedDate.Value.ToShortDateString()}");
+            Console.WriteLine($"DueDate: {dueDate.ToShortDateString()}");
+            Console.WriteLine($"TodayDate: {DateTime.Now.ToShortDateString()}");
+
+            return DateTime.Now > dueDate;
         }
 
         public void BorrowItem(string patronName)
@@ -65,7 +86,7 @@ namespace LibraryManagementSystem
 
             BorrowedDate = null;
 
-            if(ReservationQueue.Count > 0)
+            if (ReservationQueue.Count > 0)
             {
                 string nextPatron = ReservationQueue.Dequeue();
                 Console.WriteLine($"{nextPatron} is next to borrow '{Title}'");

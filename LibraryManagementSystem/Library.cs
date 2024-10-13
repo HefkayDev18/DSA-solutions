@@ -14,10 +14,10 @@ namespace LibraryManagementSystem
 
         public Library()
         {
-            books = []; /*new List<Book>();*/
-            magazines = [];
-            dVDs = [];
-         
+            books = new List<Book>();
+            magazines = new List<Magazine>();
+            dVDs = new List<DVD>();
+
         }
         private readonly int BookLimit = 100;
         private readonly int MagazineLimit = 50;
@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
 
         public void AddBook(string title)
         {
-            if(books.Count <  BookLimit)
+            if (books.Count < BookLimit)
             {
                 books.Add(new Book(title));
                 Console.WriteLine($"{title} has been added to library");
@@ -46,7 +46,7 @@ namespace LibraryManagementSystem
             else
             {
                 Console.WriteLine("Magazine can not be added. its Library section is already full");
-            }    
+            }
         }
 
         public void AddDVD(string title)
@@ -63,7 +63,7 @@ namespace LibraryManagementSystem
         }
 
         //Helper method to find an item 
-        private LibraryItem FindItem(string title)
+        public LibraryItem FindItem(string title)
         {
             LibraryItem item = books.Find(c => c.Title == title) as LibraryItem ??
                                magazines.Find(k => k.Title == title) as LibraryItem ??
@@ -76,7 +76,7 @@ namespace LibraryManagementSystem
         {
             LibraryItem item = FindItem(title);
 
-            if(item != null && !item.IsBorrowed)
+            if (item != null && !item.IsBorrowed)
             {
                 item.BorrowItem(patronName);
                 Console.WriteLine($"You have borrowed: {title}, Due for return on {item.GetDueDate().Value.ToShortDateString()}");
@@ -92,7 +92,7 @@ namespace LibraryManagementSystem
         {
             LibraryItem item = FindItem(title);
 
-            if (item!= null && item.IsBorrowed)
+            if (item != null && item.IsBorrowed)
             {
                 item.ReturnItem();
                 Console.WriteLine($"'{title}' has been returned.");
@@ -102,12 +102,12 @@ namespace LibraryManagementSystem
                 Console.WriteLine($"'{title}' is not currently borrowed.");
             }
         }
-        
+
         public void ListBorrowedItem()
         {
             Console.WriteLine("Borrowed Items:");
 
-            foreach(LibraryItem item in books)
+            foreach (LibraryItem item in books)
             {
                 if (item.IsBorrowed)
                     Console.WriteLine($"Book: {item.Title}, Borrowed Date: {item.BorrowedDate}," +

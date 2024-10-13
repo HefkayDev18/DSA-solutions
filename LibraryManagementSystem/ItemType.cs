@@ -10,6 +10,5 @@ namespace LibraryManagementSystem
 
     public class Magazine(string title) : LibraryItem(title, 7, 0.25) { }
 
-    public class DVD(string title) : LibraryItem(title, 3, 1.00){ }
-
+    public class DVD(string title) : LibraryItem(title, 3, 1.00) { }
 }
